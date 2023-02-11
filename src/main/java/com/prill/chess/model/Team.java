@@ -27,10 +27,11 @@ public class Team implements Serializable {
 	public Team() {
 	}
 
-	public Team(String teamName, String teamLocation, String teamDesc) {
+	public Team(String teamName, String teamLocation, String teamDesc, List<Comment> comments) {
 		this.teamName = teamName;
 		this.teamLocation = teamLocation;
 		this.teamDesc = teamDesc;
+		this.comments = comments;
 	}
 
 	public int getId() {
@@ -65,9 +66,17 @@ public class Team implements Serializable {
 		this.teamDesc = teamDesc;
 	}
 
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, teamDesc, teamLocation, teamName);
+		return Objects.hash(comments, id, teamDesc, teamLocation, teamName);
 	}
 
 	@Override
@@ -79,14 +88,15 @@ public class Team implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Team other = (Team) obj;
-		return id == other.id && Objects.equals(teamDesc, other.teamDesc)
+		return Objects.equals(comments, other.comments) && id == other.id && Objects.equals(teamDesc, other.teamDesc)
 				&& Objects.equals(teamLocation, other.teamLocation) && Objects.equals(teamName, other.teamName);
 	}
 
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", teamName=" + teamName + ", teamLocation=" + teamLocation + ", teamDesc=" + teamDesc
-				+ "]";
+				+ ", comments=" + comments + "]";
 	}
+
 
 }
