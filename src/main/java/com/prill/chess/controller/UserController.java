@@ -3,6 +3,7 @@ package com.prill.chess.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prill.chess.model.User;
@@ -27,14 +29,15 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 
-//	Get
+//	Get user by ID
 	@GetMapping("/users/{id}")
 	public Optional<User> getUserById(@PathVariable("id") Integer id) {
 		return userService.getUserById(id);
 	}
 
 //	Create User
-	@PostMapping("/adduser")
+	@PostMapping("/users")
+	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
@@ -44,9 +47,10 @@ public class UserController {
 	public User updateUser(@PathVariable Integer id, @RequestBody User user) {
 		return userService.updateUser(id, user);
 	}
-	
+
 //	Delete User
 	@DeleteMapping("/user/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteUserById(@PathVariable("id") Integer id) {
 		userService.deleteUser(id);
 	}
