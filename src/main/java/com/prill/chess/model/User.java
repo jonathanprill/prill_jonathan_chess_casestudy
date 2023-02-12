@@ -12,10 +12,10 @@ import jakarta.persistence.*;
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Table(name = "user")
 public class User implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  //or .AUTO
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // or .AUTO
 	private int id;
 	private String username;
 	private String email;
@@ -23,15 +23,16 @@ public class User implements Serializable {
 	private String onlineProfile;
 	private String userLocation;
 	@ManyToMany(targetEntity = Team.class)
+	@JoinTable(name = "users_teams", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "teamid"))
 	private List<Team> teamList;
 	@OneToMany(mappedBy = "userId")
 	private List<Comment> commentList;
-	@OneToMany(mappedBy = "userId")
+	@ManyToMany(targetEntity = Puzzle.class)
+	@JoinTable(name = "users_puzzles", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "puzzleid"))
 	private List<Puzzle> puzzleList;
-	
 
-	public User() {}
-
+	public User() {
+	}
 
 	public User(String username, String email, String password, String onlineProfile, String userLocation,
 			List<Team> teamList, List<Comment> commentList, List<Puzzle> puzzleList) {
@@ -45,103 +46,83 @@ public class User implements Serializable {
 		this.puzzleList = puzzleList;
 	}
 
-
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
 	public String getUsername() {
 		return username;
 	}
-
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
-
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-
 	public String getOnlineProfile() {
 		return onlineProfile;
 	}
-
 
 	public void setOnlineProfile(String onlineProfile) {
 		this.onlineProfile = onlineProfile;
 	}
 
-
 	public String getUserLocation() {
 		return userLocation;
 	}
-
 
 	public void setUserLocation(String userLocation) {
 		this.userLocation = userLocation;
 	}
 
-
 	public List<Team> getTeamList() {
 		return teamList;
 	}
-
 
 	public void setTeamList(List<Team> teamList) {
 		this.teamList = teamList;
 	}
 
-
 	public List<Comment> getCommentList() {
 		return commentList;
 	}
-
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
 	}
 
-
 	public List<Puzzle> getPuzzleList() {
 		return puzzleList;
 	}
 
-
 	public void setPuzzleList(List<Puzzle> puzzleList) {
 		this.puzzleList = puzzleList;
 	}
-
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(commentList, email, id, onlineProfile, password, puzzleList, teamList, userLocation,
 				username);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -158,14 +139,11 @@ public class User implements Serializable {
 				&& Objects.equals(userLocation, other.userLocation) && Objects.equals(username, other.username);
 	}
 
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", onlineProfile=" + onlineProfile + ", userLocation=" + userLocation + ", teamList=" + teamList
 				+ ", commentList=" + commentList + ", puzzleList=" + puzzleList + "]";
 	}
-
-	
 
 }

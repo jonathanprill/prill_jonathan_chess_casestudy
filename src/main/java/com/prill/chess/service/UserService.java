@@ -7,11 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import com.prill.chess.model.Puzzle;
+import com.prill.chess.model.Team;
 import com.prill.chess.model.User;
+import com.prill.chess.repository.PuzzleRepository;
+import com.prill.chess.repository.TeamRepository;
 import com.prill.chess.repository.UserRepository;
 
 @Service
 public class UserService {
+	@Autowired
+	PuzzleRepository puzzleRepository;
+	
+	@Autowired
+	TeamRepository teamRepository;
 
 	@Autowired
 	UserRepository userRepository;
@@ -19,6 +28,8 @@ public class UserService {
 //	Get All Users
 	public List<User> getAllUsers() {
 		List<User> userList = userRepository.findAll();
+
+		
 		return userList;
 	}
 

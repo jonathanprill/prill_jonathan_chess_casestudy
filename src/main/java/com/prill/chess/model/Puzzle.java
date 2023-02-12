@@ -19,15 +19,13 @@ public class Puzzle implements Serializable {
 	private String puzzleName;
 	private String puzzleIcon;
 	private boolean puzzleStatus;
-	private Integer userId;
 	
 	public Puzzle() {}
 
-	public Puzzle(String puzzleName, String puzzleIcon, boolean puzzleStatus, Integer userId) {
+	public Puzzle(String puzzleName, String puzzleIcon, boolean puzzleStatus) {
 		this.puzzleName = puzzleName;
 		this.puzzleIcon = puzzleIcon;
 		this.puzzleStatus = puzzleStatus;
-		this.userId = userId;
 	}
 
 	public int getId() {
@@ -62,17 +60,10 @@ public class Puzzle implements Serializable {
 		this.puzzleStatus = puzzleStatus;
 	}
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, puzzleIcon, puzzleName, puzzleStatus, userId);
+		return Objects.hash(id, puzzleIcon, puzzleName, puzzleStatus);
 	}
 
 	@Override
@@ -85,14 +76,13 @@ public class Puzzle implements Serializable {
 			return false;
 		Puzzle other = (Puzzle) obj;
 		return id == other.id && Objects.equals(puzzleIcon, other.puzzleIcon)
-				&& Objects.equals(puzzleName, other.puzzleName) && puzzleStatus == other.puzzleStatus
-				&& Objects.equals(userId, other.userId);
+				&& Objects.equals(puzzleName, other.puzzleName) && puzzleStatus == other.puzzleStatus;
 	}
 
 	@Override
 	public String toString() {
 		return "Puzzle [id=" + id + ", puzzleName=" + puzzleName + ", puzzleIcon=" + puzzleIcon + ", puzzleStatus="
-				+ puzzleStatus + ", userId=" + userId + "]";
+				+ puzzleStatus + ", userId="  + "]";
 	}
 	
 	
