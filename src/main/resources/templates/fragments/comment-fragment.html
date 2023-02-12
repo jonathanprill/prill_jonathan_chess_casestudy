@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Chess
+	Connect</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<!-- commentList refers to............ -->
+	<section th:each="comment : ${commentList}"
+		th:fragment="comment-fragment">
+		<div>
+			[[${team.teamName}]] on <span
+				th:text="${#dates.format(comment.timestamp, 'MM-dd-YY')}"></span>
+		</div>
+		<div>[[${comment.title}]]</div>
+		<br />
+		<div>[[${comment.body}]]</div>
+	</section>
+
+</body>

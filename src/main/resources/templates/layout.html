@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Chess
+	Connect</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div>
+		<header>
+			<h1>
+				<a href="/">Chess Connect</a>
+			</h1>
+			<nav>
+				<div th:if="${loggedIn}">
+					<a th:href="@{/dashboard}">dashboard</a> <a
+						th:href="@{/users/logout}">logout</a>
+				</div>
+				<div th:unless="${loggedIn}">
+					<a th:href="@{/login}">login</a>
+				</div>
+			</nav>
+		</header>
+
+		<main layout:fragment="content">
+			<p>Place Holder Content</p>
+		</main>
+
+		<footer>This is the Footer</footer>
+	</div>
+
+</body>
+</html>

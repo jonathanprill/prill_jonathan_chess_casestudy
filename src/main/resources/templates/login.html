@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Login Page</title>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div th:if="${notice}">
+			<h3>[[${notice}]]</h3>
+		</div>
+
+		<form action="#" th:action="@{/users/login}" th:object="${user}"
+			method="post">
+			<div>
+				<label>EMAIL</label> <input type="text" th:field="*{email}" />
+			</div>
+			<div>
+				<label>PASSWORD</label> <input type="password"
+					th:field="*{password}" />
+			</div>
+			<div>
+				<button type="submit">Login</button>
+			</div>
+		</form>
+
+
+		<form action="#" th:action="@{/users}" th:object="${user}"
+			method="post" class="sign-up-form">
+			<div>
+				<label>USERNAME</label> <input type="text" th:field="*{username}" />
+			</div>
+			<div>
+				<label>EMAIL</label> <input type="text" th:field="*{email}" />
+			</div>
+			<div>
+				<label>PASSWORD</label> <input type="password"
+					th:field="*{password}" />
+			</div>
+			<div>
+				<button type="submit">Sign Up</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

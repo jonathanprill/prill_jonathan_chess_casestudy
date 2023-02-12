@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Dashboard</title>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div th:if="${notice}" class="flash-message">
+			<h3>[[${notice}]]</h3>
+		</div>
+
+		<section>
+			<h2>Create A Team</h2>
+
+			<form action="#" th:action="@{/teams}" th:object="${team}"
+				method="post">
+				<div>
+					<label for="team-name">Team Name</label> <input type="text"
+						th:field="*{teamName}" id="team-name" name="team-name" />
+				</div>
+				<div>
+					<label for="team-location">Team Location</label> <input type="text"
+						th:field="*{teamLocation}" id="team-location" name="team-location" />
+				</div>
+				<div>
+					<label for="team-desc">Team Description</label> <input type="text"
+						th:field="*{teamDesc}" id="team-desc" name="team-desc" />
+				</div>
+				<button type="submit" class="btn">Create</button>
+			</form>
+		</section>
+
+		<!-- teamList refers to.................... -->
+		<section th:if="${teamList.size() > 0}">
+			<h2>My Teams</h2>
+			<ol>
+				<li th:each="team : ${teamList}">
+					<div th:insert="fragments/team-fragment :: team-fragment"></div>
+				</li>
+			</ol>
+		</section>
+
+	</div>
+
+
+</body>
+</html>

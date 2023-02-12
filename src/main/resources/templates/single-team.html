@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>View A Team</title>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div th:if="${notice}">
+			<h3>[[${notice}]]</h3>
+		</div>
+
+		<!-- View of the Team Fragment -->
+		<div th:insert="fragments/team-fragment :: team-fragment"></div>
+
+		<!-- To Leave a Comment in the Comment Section of a Team -->
+		<form th:if="${loggedIn}" action="#" th:action="@{/comments}"
+			th:object="${comment}" method="post">
+			<div>
+				<input type="hidden" th:value="${team.id}" name="teamId" />
+				<textarea name="comment-body" th:field="*{body}"></textarea>
+			</div>
+
+			<div>
+				<button type="submit">Post</button>
+			</div>
+		</form>
+
+		<!-- Comment Section in Team View -->
+		<div th:insert="fragments/comment-fragment :: comment-fragment"></div>
+
+	</div>
+
+</body>
+</html>
