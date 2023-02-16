@@ -38,11 +38,14 @@
 				<form class='login-form-left' action="#"
 					th:action="@{/users/signup}" th:object="${user}" method="post">
 					<h3 class="login-welcome">Become a Member</h3>
-					<input class='login-form-input' placeholder='Username' type="text"
-						th:field="*{username}" /> <input class='login-form-input'
-						placeholder='Email' type="text" th:field="*{email}" /> <input
-						class='login-form-input' placeholder='******' type="password"
-						th:field="*{password}" />
+					<input class='login-form-input' placeholder='Username' type="text" th:field="*{username}" />
+					<input class='login-form-input' placeholder='Email' type="text" th:field="*{email}" />
+					
+					
+					<input class='login-form-input' placeholder='Online Profile' type="text" th:field="*{onlineProfile}" />
+					<input class='login-form-input' placeholder='Location' type="text" th:field="*{userLocation}" />
+					
+					<input class='login-form-input' placeholder='******' type="password" th:field="*{password}" />
 					<button type="submit" class="sign-up-button">SUBMIT</button>
 				</form>
 

@@ -142,9 +142,9 @@ body {
 
 /* Login page */
 .login-card {
-    width: 62vw;
-    height: 350px;
-    margin: 20vh auto 73px auto;
+	width: 62vw;
+    height: 500px;
+    margin: 9vh auto 73px auto;
 }
 
 .login-form-container {
@@ -248,15 +248,41 @@ body {
     align-items: center;
     margin: -6px 0 14px 0;
     justify-content: space-evenly;
-    padding: 0px 90px;
+    padding: 0px 75px;
+    opacity: 1 !important;
 }
+
+#team-color {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 60px;
+	height: 38px;
+    background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+#team-color::-webkit-color-swatch {
+	border-radius: 8px;
+	border: none;
+}
+
+#team-color::-moz-color-swatch {
+	border-radius: 8px;
+	border: none;
+}
+
 
 .team-color-label {
 	background-color: white;
+	cursor: pointer;
     opacity: 0.7;
     padding: 5px 20px;
-    border: 1px solid black;
     border-radius: 0.5rem;
+    opacity: 0.7 !important;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
 }
 
 .puzzle-icon {
