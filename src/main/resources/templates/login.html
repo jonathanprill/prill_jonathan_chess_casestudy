@@ -9,42 +9,67 @@
 <body>
 
 	<div layout:fragment="content">
-
+<!-- Pop up Modal -->
 		<div th:if="${notice}">
-			<h3>[[${notice}]]</h3>
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Error</h5>
+						</div>
+						<div class="modal-body">
+							<p>[[${notice}]]</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				function myFunction() {
+					$("#exampleModal").modal('toggle'); //see here usage
+				};
+				myFunction();
+			</script>
 		</div>
 
-		<form action="#" th:action="@{/users/login}" th:object="${user}"
-			method="post">
-			<div>
-				<label>EMAIL</label> <input type="text" th:field="*{email}" />
+<!-- Login card -->
+		<section class='login-card'>
+			<div class='login-form-container login-form-bg'>
+				<form class='login-form-left' action="#"
+					th:action="@{/users/signup}" th:object="${user}" method="post">
+					<h3 class="login-welcome">Become a Member</h3>
+					<input class='login-form-input' placeholder='Username' type="text"
+						th:field="*{username}" /> <input class='login-form-input'
+						placeholder='Email' type="text" th:field="*{email}" /> <input
+						class='login-form-input' placeholder='******' type="password"
+						th:field="*{password}" />
+					<button type="submit" class="sign-up-button">SUBMIT</button>
+				</form>
+
+				<div class='login-form-right'>
+					<form class='login-form-left' action="#"
+						th:action="@{/users/login}" th:object="${user}" method="post">
+						<h3 class="login-welcome">Existing Members</h3>
+						<input class='login-form-input' placeholder='Email' type="text"
+							th:field="*{email}" /> <input class='login-form-input'
+							placeholder='******' type="password" th:field="*{password}" />
+						<button type="submit" class="sign-up-button">LOGIN</button>
+					</form>
+				</div>
 			</div>
-			<div>
-				<label>PASSWORD</label> <input type="password"
-					th:field="*{password}" />
-			</div>
-			<div>
-				<button type="submit">Login</button>
-			</div>
-		</form>
+		</section>
 
 
-		<form action="#" th:action="@{/users}" th:object="${user}"
-			method="post" class="sign-up-form">
-			<div>
-				<label>USERNAME</label> <input type="text" th:field="*{username}" />
-			</div>
-			<div>
-				<label>EMAIL</label> <input type="text" th:field="*{email}" />
-			</div>
-			<div>
-				<label>PASSWORD</label> <input type="password"
-					th:field="*{password}" />
-			</div>
-			<div>
-				<button type="submit">Sign Up</button>
-			</div>
-		</form>
+
+
+
+
+
+
+
+
+
+
 	</div>
 
 </body>

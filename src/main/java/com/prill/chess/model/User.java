@@ -21,6 +21,8 @@ public class User implements Serializable {
 	private String email;
 	private String password;
 	private String onlineProfile;
+	@Transient
+	boolean loggedIn;
 	private String userLocation;
 	@ManyToMany(targetEntity = Team.class)
 	@JoinTable(name = "users_teams", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "teamid"))
@@ -86,6 +88,14 @@ public class User implements Serializable {
 		this.onlineProfile = onlineProfile;
 	}
 
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
 	public String getUserLocation() {
 		return userLocation;
 	}
@@ -120,7 +130,7 @@ public class User implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(commentList, email, id, onlineProfile, password, puzzleList, teamList, userLocation,
+		return Objects.hash(commentList, email, id, onlineProfile, loggedIn, password, puzzleList, teamList, userLocation,
 				username);
 	}
 
@@ -143,7 +153,8 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", onlineProfile=" + onlineProfile + ", userLocation=" + userLocation + ", teamList=" + teamList
-				+ ", commentList=" + commentList + ", puzzleList=" + puzzleList + "]";
+				+ ", commentList=" + commentList + ", puzzleList=" + puzzleList +  
+                ", loggedIn=" + loggedIn + "]";
 	}
 
 }

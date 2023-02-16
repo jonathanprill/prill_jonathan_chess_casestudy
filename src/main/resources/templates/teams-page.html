@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Teams Page</title>
+</head>
+<body>
+	<div layout:fragment="content" >
+	
+	
+	
+	<!-- Map View -->
+	  <div th:insert="fragments/map-fragment :: map-fragment"></div>
+	
+	
+	
+	
+	
+	
+	<!-- All Team Cards -->
+		<ul style="list-style:none;" class="team-card-container">
+			<li th:each="team : ${teamList}">
+				<div th:insert="~{fragments/team-fragment :: team-fragment}"></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

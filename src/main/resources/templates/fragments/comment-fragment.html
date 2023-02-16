@@ -11,15 +11,16 @@
 </head>
 <body>
 	<!-- commentList refers to............ -->
-	<section th:each="comment : ${commentList}"
+	<div class="card p-3 m-1" th:each="comment : ${commentList}"
 		th:fragment="comment-fragment">
-		<div>
-			[[${team.teamName}]] on <span
+		
+		<h5>[[${comment.title}]]</h5>
+		
+		<h6>[[${comment.body}]]</h6>
+		<p>Posted in [[${team.teamName}]] on <span
 				th:text="${#dates.format(comment.timestamp, 'MM-dd-YY')}"></span>
-		</div>
-		<div>[[${comment.title}]]</div>
-		<br />
-		<div>[[${comment.body}]]</div>
-	</section>
+				 by [[${comment.userId}]]
+		</p>
+	</div>
 
 </body>

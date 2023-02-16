@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout}">
+
 <head>
 <title>Dashboard</title>
 </head>
@@ -9,33 +10,53 @@
 <body>
 
 	<div layout:fragment="content">
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+			integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+			crossorigin=""></script>
 
-		<div th:if="${notice}" class="flash-message">
+
+		<div th:if="${notice}">
 			<h3>[[${notice}]]</h3>
 		</div>
 
-		<section>
-			<h2>Create A Team</h2>
+		<!-- Login card -->
+		<section class='create-team-card'>
+			<div class='login-form-container login-form-bg'>
+				<form class='login-form-left' action="#" th:action="@{/createteam}"
+					th:object="${team}" method="post">
+					<h3 class="login-welcome">Create Your Own Team</h3>
+					<input class='login-form-input' placeholder='Team Name' type="text"
+						th:field="*{teamName}" id="team-name" name="team-name" /> <input
+						class='login-form-input' placeholder='Team Description'
+						type="text" th:field="*{teamDesc}" id="team-desc" name="team-desc" />
+					
 
-			<form action="#" th:action="@{/teams}" th:object="${team}"
-				method="post">
-				<div>
-					<label for="team-name">Team Name</label> <input type="text"
-						th:field="*{teamName}" id="team-name" name="team-name" />
+					<div>
+						<input class='login-form-input'
+							th:field="*{teamLocation}" type="text" name="team-location"
+							id="team-location" placeholder="Click Map" />
+					</div>
+					<div class="color-input">
+					
+					<input  type="color" value="#e66465"
+						th:field="*{teamColor}" id="team-color" name="team-color" />
+						<label class="team-color-label" for="team-color"> Team Color</label>
+					
+					
+					</div>
+						
+					<button type="submit" class="sign-up-button">Create</button>
+				</form>
+
+				<div class='login-form-right'>
+					<div id="my-map"
+						style="border-radius: 10px; width: 90%; height: 90%;"></div>
 				</div>
-				<div>
-					<label for="team-location">Team Location</label> <input type="text"
-						th:field="*{teamLocation}" id="team-location" name="team-location" />
-				</div>
-				<div>
-					<label for="team-desc">Team Description</label> <input type="text"
-						th:field="*{teamDesc}" id="team-desc" name="team-desc" />
-				</div>
-				<button type="submit" class="btn">Create</button>
-			</form>
+			</div>
 		</section>
 
-		<!-- teamList refers to.................... -->
+
+		<!-- teamList-->
 		<section th:if="${teamList.size() > 0}">
 			<h2>My Teams</h2>
 			<ol>
@@ -45,8 +66,55 @@
 			</ol>
 		</section>
 
+		<!-- puzzle icon List-->
+		<section th:if="${puzzleList.size() > 0}">
+			<h2>My Badges</h2>
+			<div th:each="puzzle : ${puzzleList}">
+				<span class="iconify puzzle-icon"
+					th:data-icon="${puzzle.puzzleIcon}" data-inline="false"></span>
+			</div>
+		</section>
+
+
+		<script type="text/javascript">
+			const map = L.map('my-map').setView(
+					[ 30.268606149999997, -97.74320738193495 ], 13);
+
+			const isRetina = L.Browser.retina;
+
+			const baseUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey={apiKey}";
+			const retinaUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey={apiKey}";
+			const locationInput = document.getElementById("team-location")
+
+			L
+					.tileLayer(
+							isRetina ? retinaUrl : baseUrl,
+							{
+								attribution : 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>',
+								apiKey : '78a2da46af4b455abc0c8999786a21aa',
+								maxZoom : 20,
+								id : 'osm-bright',
+							}).addTo(map);
+			map.on('click', function(ev) {
+				var latlng = map.mouseEventToLatLng(ev.originalEvent);
+				console.log(latlng.lat + ', ' + latlng.lng);
+
+				locationInput.value = latlng.lat + ', ' + latlng.lng;
+			});
+		</script>
+
+
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+
+
+
+
+
+
 	</div>
 
 
 </body>
+
 </html>

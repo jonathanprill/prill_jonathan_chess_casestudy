@@ -9,31 +9,49 @@
 <body>
 
 	<div layout:fragment="content">
+		<div class="single-team-background"
+			th:style="'background: radial-gradient(circle, '+ ${team.teamColor} + ' 25%, rgba(255,255,255,0) 88%);'">
 
-		<div th:if="${notice}">
-			<h3>[[${notice}]]</h3>
+			<div class="single-team-page-content">
+				<h1 class="pt-4" style="text-align:center;">[[${team.teamName}]]</h1>
+				<h4 class="py-2" style="text-align:center;">[[${team.teamDesc}]]</h4>
+				<hr class="mx-5 my-2" />
+
+				<!-- To Leave a Comment in the Comment Section of a Team -->
+				<form th:if="${loggedIn}" action="#" th:action="@{/createcomment}"
+					th:object="${comment}" method="post">
+
+					<div class="mb-3">
+						<label class="form-label">Title</label> <input
+							class="form-control" type="text" th:field="*{title}"
+							id="comment-title" name="teamId" th:value="${team.id}" />
+					</div>
+
+
+					<div class="mb-3">
+						<input class="form-label" type="hidden" th:value="${team.id}"
+							name="teamId" />
+						<textarea class="form-control" name="comment-body"
+							th:field="*{body}"></textarea>
+					</div>
+
+					<div>
+						<button type="submit">Post</button>
+					</div>
+				</form>
+
+				<!-- Comment Section in Team View -->
+				<div th:insert="fragments/comment-fragment :: comment-fragment"></div>
+				<h1>TEST</h1>
+				<button type="button" class="join-btn">Join Team</button>
+				<script src="/js/join-team.js"></script>
+			</div>
 		</div>
-
-		<!-- View of the Team Fragment -->
-		<div th:insert="fragments/team-fragment :: team-fragment"></div>
-
-		<!-- To Leave a Comment in the Comment Section of a Team -->
-		<form th:if="${loggedIn}" action="#" th:action="@{/comments}"
-			th:object="${comment}" method="post">
-			<div>
-				<input type="hidden" th:value="${team.id}" name="teamId" />
-				<textarea name="comment-body" th:field="*{body}"></textarea>
-			</div>
-
-			<div>
-				<button type="submit">Post</button>
-			</div>
-		</form>
-
-		<!-- Comment Section in Team View -->
-		<div th:insert="fragments/comment-fragment :: comment-fragment"></div>
-
 	</div>
+
+
+
+
 
 </body>
 </html>

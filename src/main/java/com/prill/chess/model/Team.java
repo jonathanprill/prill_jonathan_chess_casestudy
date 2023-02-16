@@ -15,11 +15,12 @@ public class Team implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //or .AUTO
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // or .AUTO
 	private int id;
 	private String teamName;
 	private String teamLocation;
 	private String teamDesc;
+	private String teamColor;
 
 	@OneToMany(mappedBy = "teamId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Comment> comments;
@@ -27,10 +28,11 @@ public class Team implements Serializable {
 	public Team() {
 	}
 
-	public Team(String teamName, String teamLocation, String teamDesc, List<Comment> comments) {
+	public Team(String teamName, String teamLocation, String teamDesc, String teamColor, List<Comment> comments) {
 		this.teamName = teamName;
 		this.teamLocation = teamLocation;
 		this.teamDesc = teamDesc;
+		this.teamColor = teamColor;
 		this.comments = comments;
 	}
 
@@ -66,6 +68,14 @@ public class Team implements Serializable {
 		this.teamDesc = teamDesc;
 	}
 
+	public String getTeamColor() {
+		return teamColor;
+	}
+
+	public void setTeamColor(String teamColor) {
+		this.teamColor = teamColor;
+	}
+
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -76,7 +86,7 @@ public class Team implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(comments, id, teamDesc, teamLocation, teamName);
+		return Objects.hash(comments, id, teamColor, teamDesc, teamLocation, teamName);
 	}
 
 	@Override
@@ -88,15 +98,15 @@ public class Team implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Team other = (Team) obj;
-		return Objects.equals(comments, other.comments) && id == other.id && Objects.equals(teamDesc, other.teamDesc)
-				&& Objects.equals(teamLocation, other.teamLocation) && Objects.equals(teamName, other.teamName);
+		return Objects.equals(comments, other.comments) && id == other.id && Objects.equals(teamColor, other.teamColor)
+				&& Objects.equals(teamDesc, other.teamDesc) && Objects.equals(teamLocation, other.teamLocation)
+				&& Objects.equals(teamName, other.teamName);
 	}
 
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", teamName=" + teamName + ", teamLocation=" + teamLocation + ", teamDesc=" + teamDesc
-				+ ", comments=" + comments + "]";
+				+ ", teamColor=" + teamColor + ", comments=" + comments + "]";
 	}
-
 
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Just Tech News</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<article class="map" th:fragment="map-fragment">
+  <h2>Discover Teams in Your Area</h2>
+
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+          integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+          crossorigin=""></script>
+  <div id="my-map" style="width: 70vw; height: 450px; margin: 0 auto;"></div>
+
+<script type="text/javascript">
+    const map = L.map('my-map').setView([
+        30.268606149999997,
+        -97.74320738193495], 13);
+
+    const isRetina = L.Browser.retina;
+
+    const baseUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey={apiKey}";
+    const retinaUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey={apiKey}";
+
+
+    L.tileLayer(isRetina ? retinaUrl : baseUrl, {
+        attribution: 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>',
+        apiKey: '78a2da46af4b455abc0c8999786a21aa',
+        maxZoom: 20,
+        id: 'osm-bright',
+    }).addTo(map);
+</script>
+
+
+  <script th:each="team : ${teamList}"  th:inline="javascript" type="text/javascript">
+  	 var coords = [[${team.teamLocation}]];
+  	 var teamLink  = [[${team.id}]];
+     var [myLatitude, myLongitude] = coords.split(',');
+    L.marker([myLatitude, myLongitude]).addTo(map).bindPopup('<a href= singleTeam/[[${team.id}]] >[[${team.teamName}]]</a><p>[[${team.teamDesc}]]</p>');
+
+  </script>
+
+
+</article>
+</body>

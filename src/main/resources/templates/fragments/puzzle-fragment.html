@@ -12,12 +12,9 @@
 <body>
 
 
-	<a th:href="@{/singleTeam/{id}(id=${team.id})}"
-		th:style="'box-shadow: -1px 1px 8px 0px ' + ${team.teamColor} + ';' "
-		class="team-card p-3 m-3" th:fragment="team-fragment">
-		<h5>[[${team.teamName}]]</h5>
-		<p>[[${team.teamDesc}]]</p>
-		<p>[[${team.teamLocation}]]</p>
+	<a th:fragment="puzzle-fragment" th:href="@{/singlePuzzle/{id}(id=${puzzle.id})}">
+		<h5>[[${puzzle.puzzleName}]]</h5>
+
 
 
 	</a>
