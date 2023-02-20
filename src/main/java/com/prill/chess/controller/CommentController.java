@@ -16,38 +16,60 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prill.chess.model.Comment;
 import com.prill.chess.service.CommentService;
-
+/**
+ * This Class is used as a Rest Controller that contains all routes involved in Comment CRUD manipulation
+ * @author Jonathan Prill
+ *
+ */
 @RestController
 public class CommentController {
 	@Autowired
 	CommentService commentService;
 	
-//	Get all Comments
+	/**
+	 * This method Gets All Comments
+	 * @return
+	 */
 	@GetMapping("/comments")
 	public List<Comment> getAllComments() {
 		return commentService.getAllComments();
 	}
 	
-//	Get comment by ID
+	/**
+	 * This method will Get a Comment Based on an Id parameter
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/comments/{id}")
 	public Optional<Comment> getCommentById(@PathVariable("id") Integer id) {
 		return commentService.getCommentById(id);
 	}
 	
-//	Add Comment
+	/**
+	 * This method is used to create a comment
+	 * @param comment
+	 */
 	@PostMapping("/comments")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createComment(@RequestBody Comment comment) {
 		commentService.addComment(comment);
 	}
 	
-//	update comment
+	/**
+	 * This method is used to update a comment based on Id parameter
+	 * @param id
+	 * @param comment
+	 * @return
+	 */
 	@PutMapping("/comment/{id}")
 	public Comment updateComment(@PathVariable Integer id, @RequestBody Comment comment) {
 		return commentService.updateComment(id, comment);
 	}
 	
-//	Delete Comment
+	/**
+	 * This method is used to delete a comment based on Id parameter
+	 * @param id
+	 */
 	@DeleteMapping("/comment/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteCommentById(@PathVariable("id") Integer id) {

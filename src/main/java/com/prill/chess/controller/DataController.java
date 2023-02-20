@@ -23,6 +23,11 @@ import com.prill.chess.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * This Class is used as a Controller that hits POST and PUT routes involved in the application when running in the browser
+ * @author Jonathan Prill
+ *
+ */
 @Controller
 public class DataController {
 
@@ -38,7 +43,14 @@ public class DataController {
 	@Autowired
 	UserRepository userRepository;
 
-//	To Login
+	/**
+	 * This method is used to login an existing user, sets them as SESSION_USER and includes validation
+	 * @param user
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/users/login")
 	public String login(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
 
@@ -73,7 +85,14 @@ public class DataController {
 		return "redirect:/dashboard";
 	}
 
-//	To Sign Up
+	/**
+	 * This method allows a new user to sign up and then sets them as SESSION_USER
+	 * @param user
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/users/signup")
 	public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
 
@@ -110,7 +129,13 @@ public class DataController {
 		return "redirect:/dashboard";
 	}
 
-//	To Create a Team
+	/**
+	 * This method allows only signed in users to create a team
+	 * @param team
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/createteam")
 	public String addPostDashboardPage(@ModelAttribute Team team, Model model, HttpServletRequest request) {
 
@@ -129,7 +154,14 @@ public class DataController {
 		}
 	}
 
-//	To create a Comment
+
+	/**
+	 * This method allows a signed in user to write a comment on the teams page, then redirects them to that same team page
+	 * @param comment
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/createcomment")
 	public String createCommentLogic(@ModelAttribute Comment comment, Model model, HttpServletRequest request) {
 
@@ -149,7 +181,13 @@ public class DataController {
 		}
 	}
 
-//	To Join a Team
+
+	/**
+	 * This method allows a signed in user to join a team, uses custom INSERT repo method joinTeam()
+	 * @param team
+	 * @param request
+	 * @param response
+	 */
 	@PutMapping("/teams/join")
 	public void joinATeam(@RequestBody Team team, HttpServletRequest request, HttpServletResponse response) {
 
@@ -160,7 +198,13 @@ public class DataController {
 		}
 	}
 	
-//	When a puzzle is completed
+
+	/**
+	 * This method is triggered when a signed in user completes a puzzle. Uses custom INSERT method puzzleComplete()
+	 * @param puzzle
+	 * @param request
+	 * @param response
+	 */
 	@PutMapping("/puzzles/completed")
 	public void puzzleCompleted(@RequestBody Puzzle puzzle, HttpServletRequest request, HttpServletResponse response) {
 

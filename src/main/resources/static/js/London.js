@@ -1,46 +1,45 @@
 
-var playCaroKann = function (APIconfigFiller, newPos) {
+var playLondon = function (APIconfigFiller, newPos) {
 
   var config = {
-    orientation: 'black',
+    orientation: 'white',
     draggable: true,
-    position: 'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR',
-    onChange: playCaroKann
+    position: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR',
+    onChange: playLondon
   }
   board = Chessboard('myBoard', config)
 
 
 
-  if (Chessboard.objToFen(newPos) == 'rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR') {
+  if (Chessboard.objToFen(newPos) == 'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR') {
 
     var config = {
-      orientation: 'black',
+      orientation: 'white',
       draggable: true,
-      position: 'rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR',
-      onChange: playCaroKann
+      position: 'rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR',
+      onChange: playLondon
     }
     Chessboard('myBoard', config)
 
+//d
 
-
-  } else if (Chessboard.objToFen(newPos) == 'rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR') {
+  } else if (Chessboard.objToFen(newPos) == 'rnbqkbnr/ppp1pppp/8/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR') {
     var config = {
-      orientation: 'black',
+      orientation: 'white',
       draggable: true,
-      position: 'rnbqkbnr/pp2pppp/2p5/3P4/3P4/8/PPP2PPP/RNBQKBNR',
-      onChange: playCaroKann
+      position: 'r1bqkbnr/ppp1pppp/2n5/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR',
+      onChange: playLondon
     }
     Chessboard('myBoard', config)
 
-  } else if (Chessboard.objToFen(newPos) == 'rnbqkbnr/pp2pppp/8/3p4/3P4/8/PPP2PPP/RNBQKBNR') {
+  } else if (Chessboard.objToFen(newPos) == 'r1bqkbnr/ppp1pppp/2n5/3p4/3P1B2/4P3/PPP2PPP/RN1QKBNR') {
 
-    londonCompleted();
-
+   londonCompleted();
   }
 };
 
 
-playCaroKann();
+playLondon();
 
 
 // if user finishes this function will fire

@@ -7,7 +7,89 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>HomePAge</h1>
+
+		<!-- Welcome Section -->
+		<section class="welcome-section">
+			<h1>Welcome To Chess Connect</h1>
+			<p>The application that helps connect chess players that love to
+				play over the board.</p>
+		</section>
+
+		<!-- About us Section -->
+		<section class="about-section">
+			<h1>How We Operate</h1>
+			<p>By combining the power of Java, SQL, HTML, JavaScript, and
+				multiple API's, Chess Connect is able to provide a robust full stack
+				experience. Without listing every single technology used, here are
+				the big ones:</p>
+			(SHOW ICONS HERE!! CARDS WITH ON HOVER TEXT)
+		</section>
+		<!-- Why We Operate -->
+		<section class="about-section">
+			<h1>Why We Operate</h1>
+			<p>Although small, this capable application provides a means for
+				chess players to make real connections. During the pandemic and the
+				subsequent release of The Queens Gambit, chess began to blossom.
+				Many learned to play online and have never played over the board.
+				This applications goal is to fix that problem by providing a
+				platform for those yearning to get out, socialize, and play chess.</p>
+		</section>
+		<!-- Coming Soon Section -->
+		<section class="about-section">
+			<h1>Coming Soon</h1>
+			<p>
+				I learned a lot from building this application. I found out the long
+				way how to add custom SQL INSERT statements to repositories and then
+				calling them with async JavaScript functions. I learned Thymeleaf
+				can be very finicky about integrating JavaScript logic and seemingly
+				simple SQL table relationships can sometimes be mind boggling. <br />
+				<br /> Although I put a lot of work into this, there's still a lot
+				I'd like to improve:
+			</p>
+			<ul style="padding:0 120px; text-align: start">
+				<li>Viewing other peoples profiles.</li>
+				<li>Disabling puzzles once completed.</li>
+				<li>Comments contain users information.</li>
+				<li>Added Longer Puzzles.</li>
+			</ul>
+		</section>
+
+
+		<!-- Reach out section -->
+		<section class="reach-out-section">
+			<h1>Reach Out</h1>
+
+			<div class="contact-section">
+				<div class="message-form">
+					<form>
+						<h3>Send Us a Message</h3>
+						<div class="mb-3">
+							<div class="input-group">
+								<span class="input-group-text" id="basic-addon3">Enter
+									Your Name</span> <input type="text" class="form-control"
+									id="basic-url" aria-describedby="basic-addon3">
+							</div>
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-text">Enter A Message</span>
+							<textarea class="form-control" aria-label="With textarea"
+								aria-describedby="button-addon2"></textarea>
+							<button class="btn btn-outline-secondary" type="button"
+								id="button-addon2">Submit</button>
+						</div>
+					</form>
+				</div>
+
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107116.1016420698!2d-97.81143524785382!3d30.280856877281863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b586e0f968db%3A0x9b503f3c7a9772ba!2sZilker%20Metropolitan%20Park!5e0!3m2!1sen!2sus!4v1675260598196!5m2!1sen!2sus"
+					width="400" height="400" style="border: 0;" allowfullscreen=""
+					loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+			</div>
+		</section>
+
+
 	</div>
 </body>
 </html>

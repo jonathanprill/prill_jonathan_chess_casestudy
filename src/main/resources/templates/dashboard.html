@@ -18,7 +18,7 @@
 		<div th:if="${notice}">
 			<h3>[[${notice}]]</h3>
 		</div>
-
+	<h1 style="text-align:center;">Dashboard</h1>
 		<!-- Login card -->
 		<section class='create-team-card'>
 			<div class='login-form-container login-form-bg'>
@@ -67,8 +67,8 @@
 		</section>
 
 		<!-- puzzle icon List-->
-		<section th:if="${puzzleList.size() > 0}">
-			<h2>My Badges</h2>
+		<section th:if="${puzzleList.size() > 0}" class="badge-card">
+			<h4>My Badges</h4>
 			<div th:each="puzzle : ${puzzleList}">
 				<span class="iconify puzzle-icon"
 					th:data-icon="${puzzle.puzzleIcon}" data-inline="false"></span>

@@ -20,6 +20,11 @@ import com.prill.chess.repository.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+/**
+ * This Class is used as a Controller that hits GET routes involved in the application when running in the browser
+ * @author Jonathan Prill
+ *
+ */
 @Controller
 public class HomePageController {
 
@@ -35,7 +40,13 @@ public class HomePageController {
 	@Autowired
 	UserRepository userRepository;
 
-//	Login Route
+
+	/**
+	 * This method GETS login.html when /login route is hit
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/login")
 	public String login(Model model, HttpServletRequest request) {
 		if (request.getSession(false) != null) {
@@ -45,7 +56,11 @@ public class HomePageController {
 		return "login";
 	}
 
-//	Logout Route
+	/**
+	 * This method routes to /users/logout when a logged in user clicks logout button. It then invalidates their session.
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/users/logout")
 	public String logout(HttpServletRequest request) {
 		if (request.getSession(false) != null) {
@@ -54,7 +69,13 @@ public class HomePageController {
 		return "redirect:/login";
 	}
 
-//	Home page Route
+
+	/**
+	 * This method GETS the (/) route and renders homepage.html. 
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/")
 	public String createHomepage(Model model, HttpServletRequest request) {
 		User sessionUser = new User();
@@ -75,7 +96,13 @@ public class HomePageController {
 		return "homepage";
 	}
 	
-//	View ALL Teams Route
+
+	/**
+	 * This method hit route /allteams and renders the teams-page if the user if logged in.
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/allteams")
 	public String createTeamsPage(Model model, HttpServletRequest request) {
 		User sessionUser = new User();
@@ -85,18 +112,26 @@ public class HomePageController {
 			model.addAttribute("loggedIn", sessionUser.isLoggedIn());
 		} else {
 			model.addAttribute("loggedIn", false);
+			return "redirect:/login";
 		}
 
 		List<Team> teamList = teamRepository.findAll();
 //	    Possible list out users here
-
+		model.addAttribute("user", sessionUser);
 		model.addAttribute("teamList", teamList);
 		model.addAttribute("loggedIn", sessionUser.isLoggedIn());
 
 		return "teams-page";
 	}
 
-//	Dashboard Route
+
+	/**
+	 * If a user is logged in this method routes to /dashboard rendering dashboard.html
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/dashboard")
 	public String createDashboard(Model model, HttpServletRequest request) throws Exception {
 		if (request.getSession(false) != null) {
@@ -108,12 +143,19 @@ public class HomePageController {
 		}
 	}
 
+	/**
+	 * This method is a tool for createDashboard. It contains all the logic for rendering the users teams and puzzles
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	public Model setupDashboard(Model model, HttpServletRequest request) throws Exception {
 		User sessionUser = (User) request.getSession().getAttribute("SESSION_USER");
 		Integer userId = sessionUser.getId();
 		List<Team> teamList = teamRepository.findAllTeamsByUserId(userId);
 		List<Puzzle> puzzleList = puzzleRepository.findAllPuzzlesByUserId(userId);
-
+		
 		model.addAttribute("user", sessionUser);
 		model.addAttribute("teamList", teamList);
 		model.addAttribute("puzzleList", puzzleList);
@@ -122,13 +164,27 @@ public class HomePageController {
 		return model;
 	}
 	
-//	Single team route
+
+	/**
+	 * This method directs to singleTeam/{id} rendering one teams page
+	 * @param id
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/singleTeam/{id}")
 	public String createSingleTeamPage(@PathVariable int id, Model model, HttpServletRequest request) {
 		setupSingleTeamPage(id, model, request);
 		return "single-team";
 	}
 
+	/**
+	 * This method is a tool for createSingleTeamPage. It contains all the logic for rendering the teams info and comments
+	 * @param id
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	public Model setupSingleTeamPage(int id, Model model, HttpServletRequest request) {
 		if (request.getSession(false) != null) {
 			User sessionUser = (User) request.getSession().getAttribute("SESSION_USER");
