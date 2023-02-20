@@ -193,7 +193,7 @@ public class HomePageController {
 		}
 		Optional<Team> tempTeam = teamRepository.findById(id);
 		Team team = tempTeam.get();
-
+//	    Possible list out users here
 		List<Comment> commentList = commentRepository.findAllCommentsByTeamId(team.getId());
 		
 		model.addAttribute("team", team);
@@ -203,7 +203,13 @@ public class HomePageController {
 	}
 	
 	
-//	View ALL Puzzles Route
+
+	/**
+	 * This method renders puzzle-page when a logged in user hits the route /allpuzzles, this page lists all puzzles in the db
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/allpuzzles")
 	public String createPuzzlesPage(Model model, HttpServletRequest request) {
 		User sessionUser = new User();
@@ -216,7 +222,6 @@ public class HomePageController {
 		}
 
 		List<Puzzle> puzzleList = puzzleRepository.findAll();
-//	    Possible list out users here
 
 		model.addAttribute("puzzleList", puzzleList);
 		model.addAttribute("loggedIn", sessionUser.isLoggedIn());
@@ -224,13 +229,27 @@ public class HomePageController {
 		return "puzzles-page";
 	}
 	
-//	Single Puzzle route
+
+	/**
+	 * This method renders single-puzzle.html when singlePuzzle/{id} is hit. It renders that specific puzzles attributes
+	 * @param id
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/singlePuzzle/{id}")
 	public String createSinglePuzzlePage(@PathVariable int id, Model model, HttpServletRequest request) {
 		setupSinglePuzzlePage(id, model, request);
 		return "single-puzzle";
 	}
 
+	/**
+	 * This method is a tool for createSinglePuzzlePage. It contains all the logic for rendering the puzzles info
+	 * @param id
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	public Model setupSinglePuzzlePage(int id, Model model, HttpServletRequest request) {
 		if (request.getSession(false) != null) {
 			User sessionUser = (User) request.getSession().getAttribute("SESSION_USER");

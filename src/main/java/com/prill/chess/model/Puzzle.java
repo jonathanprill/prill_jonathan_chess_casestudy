@@ -7,6 +7,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
+
+/**
+ * This class creates Puzzle with constructors, getter/setters, toString, hashCode/equals and creates Puzzle Table in SQL Database
+ * @author Jonathan Prill
+ *
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "puzzle")

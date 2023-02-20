@@ -9,7 +9,7 @@
 <body>
 
 	<div layout:fragment="content">
-<!-- Pop up Modal -->
+		<!-- Pop up Modal -->
 		<div th:if="${notice}">
 			<div class="modal fade" id="exampleModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -20,6 +20,11 @@
 						</div>
 						<div class="modal-body">
 							<p>[[${notice}]]</p>
+						</div>
+						<div class="modal-footer">
+						        <a th:href="@{/login}" ><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
+						
+							<a th:href="@{/logerror}" ><button type="button" class="btn btn-danger">Log Error to File</button></a>
 						</div>
 					</div>
 				</div>
@@ -32,20 +37,21 @@
 			</script>
 		</div>
 
-<!-- Login card -->
+		<!-- Login card -->
 		<section class='login-card'>
 			<div class='login-form-container login-form-bg'>
 				<form class='login-form-left' action="#"
 					th:action="@{/users/signup}" th:object="${user}" method="post">
 					<h3 class="login-welcome">Become a Member</h3>
-					<input class='login-form-input' placeholder='Username' type="text" th:field="*{username}" />
-					<input class='login-form-input' placeholder='Email' type="text" th:field="*{email}" />
-					
-					
-					<input class='login-form-input' placeholder='Online Profile' type="text" th:field="*{onlineProfile}" />
-					<input class='login-form-input' placeholder='Location' type="text" th:field="*{userLocation}" />
-					
-					<input class='login-form-input' placeholder='******' type="password" th:field="*{password}" />
+					<input class='login-form-input' placeholder='Username' type="text"
+						th:field="*{username}" /> <input class='login-form-input'
+						placeholder='Email' type="text" th:field="*{email}" /> <input
+						class='login-form-input' placeholder='Online Profile' type="text"
+						th:field="*{onlineProfile}" /> <input class='login-form-input'
+						placeholder='Location' type="text" th:field="*{userLocation}" />
+
+					<input class='login-form-input' placeholder='******'
+						type="password" th:field="*{password}" />
 					<button type="submit" class="sign-up-button">SUBMIT</button>
 				</form>
 

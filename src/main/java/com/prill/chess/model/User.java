@@ -8,6 +8,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
+
+/**
+ * This class creates User with constructors, getter/setters, toString, hashCode/equals and creates User Table in SQL Database
+ * @author Jonathan Prill
+ *
+ */
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Table(name = "user")

@@ -9,29 +9,54 @@ import org.springframework.stereotype.Service;
 import com.prill.chess.model.Comment;
 import com.prill.chess.repository.CommentRepository;
 
+/**
+ * This Service Class gives logic to the Comment Controller utilizing the CommentRepository
+ * @author Jonathan Prill
+ *
+ */
 @Service
 public class CommentService {
 	@Autowired
 	CommentRepository commentRepository;
 
-//	Get All Comments
+
+	/**
+	 * This method contains logic for creating a list of comments, pulling them from the database
+	 * @return
+	 */
 	public List<Comment> getAllComments() {
 		List<Comment> commentList = commentRepository.findAll();
 		return commentList;
 	}
 
-//	Get Comments By Id
+
+	/**
+	 * This method contains logic for getting a comment by ID
+	 * @param id
+	 * @return
+	 */
 	public Optional<Comment> getCommentById(Integer id) {
 		Optional<Comment> returnComment = commentRepository.findById(id);
 		return returnComment;
 	}
 
-//	Create Comment
+
+	/**
+	 * This method contains the logic for creating a comment and adding it to the database
+	 * @param comment
+	 * @return
+	 */
 	public Comment addComment(Comment comment) {
 		return commentRepository.save(comment);
 	}
 
-//	Update Comment
+
+	/**
+	 * This method contains the logic for updating a comment based on Id and updating the database 
+	 * @param id
+	 * @param comment
+	 * @return
+	 */
 	public Comment updateComment(Integer id, Comment comment) {
 		Optional<Comment> tempComment = commentRepository.findById(id);
 		Comment commentObj = tempComment.get();
@@ -42,7 +67,11 @@ public class CommentService {
 		return comment;
 	}
 
-//	Delete Comment
+
+	/**
+	 * This method contains the logic for deleting a comment based on Id and updating the database 
+	 * @param id
+	 */
 	public void deleteComment(Integer id) {
 		commentRepository.deleteById(id);
 	}

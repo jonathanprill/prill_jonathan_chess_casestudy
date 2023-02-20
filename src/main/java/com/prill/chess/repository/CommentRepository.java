@@ -1,20 +1,29 @@
 package com.prill.chess.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
 import com.prill.chess.model.Comment;
-import com.prill.chess.model.Puzzle;
 
+
+/**
+ * This Interface creates the Comment Repository and extends JPA Repository. 
+ * @author Jonathan Prill
+ *
+ */
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
-	List<Comment> findAllCommentsByUserId(Integer id); //or userId
 	
+	/**
+	 * This method creates a custom query to find all the comments by userId
+	 * @param id
+	 * @return
+	 */
+	List<Comment> findAllCommentsByUserId(Integer id);
+	
+	/**
+	 * This method creates a custom query to find all the comments by teamId
+	 * @param teamId
+	 * @return
+	 */
 	List<Comment> findAllCommentsByTeamId(Integer teamId);
-	
-//	  @Query(value = "SELECT user.username, comment.user_id, comment.id, comment.title, comment.body, comment.team_id, comment.timestamp FROM comment JOIN user ON comment.user_id = user.id WHERE comment.team_id = :teamId", nativeQuery = true)
-//	  List<Comment> customfindAllCommentsByTeamId(@Param("teamId") Integer teamId);
 
 }

@@ -17,38 +17,66 @@ import org.springframework.web.bind.annotation.RestController;
 import com.prill.chess.model.Team;
 import com.prill.chess.service.TeamService;
 
+/**
+ * This Class is used as a Rest Controller that contains all routes involved in Team CRUD manipulation
+ * @author Jonathan Prill
+ *
+ */
 @RestController
 public class TeamController {
 
 	@Autowired
 	TeamService teamService;
 
-//	Get all teams
+
+	/**
+	 * This method Gets All Teams
+	 * @return
+	 */
 	@GetMapping("/teams")
 	public List<Team> getAllTeams() {
 		return teamService.getAllTeams();
 	}
 
-//	Get team by ID
+
+	/**
+	 * This method will Get a Team Based on an Id parameter
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/teams/{id}")
 	public Optional<Team> getTeamById(@PathVariable("id") Integer id) {
 		return teamService.getTeamById(id);
 	}
 
-//	Add Team
+	
+	/**
+	 * This method is used to create a Team
+	 * @param team
+	 */
 	@PostMapping("/teams")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createTeam(@RequestBody Team team) {
 		teamService.addTeam(team);
 	}
 
-//	update Team
+
+	/**
+	 * This method is used to update a Team based on Id parameter
+	 * @param id
+	 * @param team
+	 * @return
+	 */
 	@PutMapping("/team/{id}")
 	public Team updateTeam(@PathVariable Integer id, @RequestBody Team team) {
 		return teamService.updateTeam(id, team);
 	}
 
-//	Delete Team
+
+	/**
+	 * This method is used to delete a Team based on Id parameter
+	 * @param id
+	 */
 	@DeleteMapping("/team/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteTeamById(@PathVariable("id") Integer id) {

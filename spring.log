@@ -1,0 +1,67 @@
+2023-02-20T11:10:20.615-05:00  INFO 8848 --- [restartedMain] c.PrillJonathanChessCasestudyApplication : Starting PrillJonathanChessCasestudyApplication using Java 17.0.4.1 with PID 8848 (C:\Users\jonat\Documents\spring-wrkspace\prill_jonathan_chess_casestudy\target\classes started by jonat in C:\Users\jonat\Documents\spring-wrkspace\prill_jonathan_chess_casestudy)
+2023-02-20T11:10:20.618-05:00  INFO 8848 --- [restartedMain] c.PrillJonathanChessCasestudyApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-20T11:10:20.804-05:00  INFO 8848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-20T11:10:20.814-05:00  INFO 8848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-20T11:10:21.474-05:00  WARN 8848 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.session.config.annotation.web.http.SpringHttpSessionConfiguration
+2023-02-20T11:10:21.518-05:00  INFO 8848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-20T11:10:21.583-05:00  INFO 8848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 4 JPA repository interfaces.
+2023-02-20T11:10:22.049-05:00  INFO 8848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-20T11:10:22.058-05:00  INFO 8848 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-20T11:10:22.059-05:00  INFO 8848 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-20T11:10:22.115-05:00  INFO 8848 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-20T11:10:22.115-05:00  INFO 8848 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1299 ms
+2023-02-20T11:10:22.213-05:00  INFO 8848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-20T11:10:22.463-05:00  INFO 8848 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2582021a
+2023-02-20T11:10:22.465-05:00  INFO 8848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-20T11:10:22.567-05:00  INFO 8848 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-20T11:10:22.623-05:00  INFO 8848 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-20T11:10:22.765-05:00  WARN 8848 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-20T11:10:22.882-05:00  INFO 8848 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-02-20T11:10:22.882-05:00  WARN 8848 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL5Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-20T11:10:23.722-05:00  INFO 8848 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-20T11:10:23.732-05:00  INFO 8848 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-20T11:10:24.207-05:00  WARN 8848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-20T11:10:24.590-05:00  INFO 8848 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-20T11:10:24.596-05:00  INFO 8848 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-20T11:10:24.664-05:00  INFO 8848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-20T11:10:24.677-05:00  INFO 8848 --- [restartedMain] c.PrillJonathanChessCasestudyApplication : Started PrillJonathanChessCasestudyApplication in 4.388 seconds (process running for 5.036)
+2023-02-20T11:10:34.290-05:00  INFO 8848 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-20T11:10:34.290-05:00  INFO 8848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-20T11:10:34.292-05:00  INFO 8848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-02-20T11:11:04.755-05:00  WARN 8848 --- [http-nio-8080-exec-7] actStandardFragmentInsertionTagProcessor : [THYMELEAF][http-nio-8080-exec-7][layout] Deprecated unwrapped fragment expression "fragments/team-fragment :: team-fragment" found in template dashboard, line 64, col 11. Please use the complete syntax of fragment expressions instead ("~{fragments/team-fragment :: team-fragment}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-02-20T11:12:30.640-05:00  WARN 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : enter hello...
+2023-02-20T11:12:30.641-05:00  INFO 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : ===info===
+2023-02-20T11:12:30.641-05:00  WARN 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : ===warn===
+2023-02-20T11:13:38.620-05:00  WARN 8848 --- [http-nio-8080-exec-3] c.prill.chess.controller.UserController  : enter hello...
+2023-02-20T11:13:38.620-05:00  INFO 8848 --- [http-nio-8080-exec-3] c.prill.chess.controller.UserController  : ===info===
+2023-02-20T11:13:38.620-05:00  WARN 8848 --- [http-nio-8080-exec-3] c.prill.chess.controller.UserController  : ===warn===
+2023-02-20T11:15:13.294-05:00  WARN 8848 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "login"]
+2023-02-20T11:15:58.318-05:00  WARN 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : enter hello...
+2023-02-20T11:15:58.320-05:00  INFO 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : ===info===
+2023-02-20T11:15:58.320-05:00  WARN 8848 --- [http-nio-8080-exec-5] c.prill.chess.controller.UserController  : ===warn===
+2023-02-20T11:16:14.169-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-02-20T11:16:14.179-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-20T11:16:14.183-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-02-20T11:16:14.188-05:00  WARN 8848 --- [RMI TCP Connection(17)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-02-20T11:16:14.188-05:00  WARN 8848 --- [RMI TCP Connection(17)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-02-20T11:16:14.196-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-20T11:16:14.201-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-20T11:16:14.207-05:00  INFO 8848 --- [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

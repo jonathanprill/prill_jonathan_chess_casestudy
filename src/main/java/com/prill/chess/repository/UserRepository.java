@@ -10,13 +10,24 @@ import com.prill.chess.model.User;
 
 import jakarta.transaction.Transactional;
 
+
+/**
+ * This Interface creates the User Repository and extends JPA Repository. 
+ * @author Jonathan Prill
+ *
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 //	Find User By Email
 	User findUserByEmail(String email) throws Exception;
 
 	
-//	Lets a user join a team
+
+	/**
+	 * This method creates a custom SQL INSERT statement, allowing a user to join a team
+	 * @param id
+	 * @param teamid
+	 */
 	@Modifying
 	@Transactional 
 	@Query(value = "INSERT INTO users_teams VALUES (:id, :teamid)", nativeQuery = true)
@@ -24,7 +35,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	
 	
-//	When a user finishes a puzzle
+
+	/**
+	 * This method creates a custom SQL INSERT statement, adding a completed puzzle to the a user's list
+	 * @param id
+	 * @param puzzleid
+	 */
 	@Modifying
 	@Transactional 
 	@Query(value = "INSERT INTO users_puzzles VALUES (:id, :puzzleid)", nativeQuery = true)
