@@ -12,7 +12,8 @@
 <body>
 
 
-	<a th:fragment="puzzle-fragment" th:href="@{/singlePuzzle/{id}(id=${puzzle.id})}">
+	<a th:fragment="puzzle-fragment" class="puzzle-card p-3 m-3"
+		th:href="@{/singlePuzzle/{id}(id=${puzzle.id})}">
 		<h5>[[${puzzle.puzzleName}]]</h5>
 
 

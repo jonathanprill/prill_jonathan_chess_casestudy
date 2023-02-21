@@ -22,9 +22,11 @@
 							<p>[[${notice}]]</p>
 						</div>
 						<div class="modal-footer">
-						        <a th:href="@{/login}" ><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
-						
-							<a th:href="@{/logerror}" ><button type="button" class="btn btn-danger">Log Error to File</button></a>
+							<a th:href="@{/login}"><button type="button"
+									class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
+
+							<a th:href="@{/logerror}"><button type="button"
+									class="btn btn-danger">Log Error to File</button></a>
 						</div>
 					</div>
 				</div>
@@ -46,12 +48,16 @@
 					<input class='login-form-input' placeholder='Username' type="text"
 						th:field="*{username}" /> <input class='login-form-input'
 						placeholder='Email' type="text" th:field="*{email}" /> <input
-						class='login-form-input' placeholder='Online Profile' type="text"
+						class='login-form-input' placeholder='Password' type="password"
+						th:field="*{password}" /> <input class='login-form-input'
+						placeholder='Chess.com Username' type="text"
 						th:field="*{onlineProfile}" /> <input class='login-form-input'
-						placeholder='Location' type="text" th:field="*{userLocation}" />
+						placeholder='Location' type="text" id="location" name="location"
+						th:field="*{userLocation}" />
+					<button type="button" class="sign-up-button" id="find-my-loc">Use
+						Current Location</button>
 
-					<input class='login-form-input' placeholder='******'
-						type="password" th:field="*{password}" />
+
 					<button type="submit" class="sign-up-button">SUBMIT</button>
 				</form>
 
@@ -61,7 +67,7 @@
 						<h3 class="login-welcome">Existing Members</h3>
 						<input class='login-form-input' placeholder='Email' type="text"
 							th:field="*{email}" /> <input class='login-form-input'
-							placeholder='******' type="password" th:field="*{password}" />
+							placeholder='Password' type="password" th:field="*{password}" />
 						<button type="submit" class="sign-up-button">LOGIN</button>
 					</form>
 				</div>
@@ -69,7 +75,17 @@
 		</section>
 
 
-
+		<script type="text/javascript">
+        const findLoc = document.querySelector("#find-my-loc");
+        const locationInput = document.querySelector("#location");
+        findLoc.addEventListener('click', () => {
+            navigator.geolocation.getCurrentPosition(data => {
+                console.log(data.coords.latitude,data.coords.longitude);
+                var data = data.coords.latitude + ',' + data.coords.longitude 
+                $("#location").val(data)
+            })
+        })
+</script>
 
 
 

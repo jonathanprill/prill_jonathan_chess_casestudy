@@ -18,8 +18,135 @@
 		<div th:if="${notice}">
 			<h3>[[${notice}]]</h3>
 		</div>
-	<h1 style="text-align:center;">Dashboard</h1>
-		<!-- Login card -->
+		<h1 style="text-align: center; margin: 26px 0;">Dashboard</h1>
+
+
+		<!-- Uppser Dashboard Section -->
+		<div class="upper-dash-section">
+
+
+			<!-- teamList-->
+			<section th:if="${teamList.size() > 0}" class="my-teams-card">
+				<h2 style="text-align: center; margin: 26px 0; width: 100%">My
+					Teams</h2>
+				<ul style="list-style: none;" class="team-card-container ">
+					<li th:each="team : ${teamList}">
+						<div th:insert="fragments/team-fragment :: team-fragment"></div>
+					</li>
+				</ul>
+			</section>
+
+			<!-- puzzle icon List-->
+			<section th:if="${puzzleList.size() > 0}" class="badge-card">
+				<h4 style="text-align: center; margin: 26px 0; width: 100%">My
+					Badges</h4>
+				<div th:each="puzzle : ${puzzleList}">
+					<span class="iconify puzzle-icon" style="margin-bottom: 12px"
+						th:data-icon="${puzzle.puzzleIcon}" data-inline="false"></span>
+				</div>
+			</section>
+		</div>
+
+
+		<!-- Chess.com API Section -->
+		<div class="api-section">
+			<h2 style="width:100%; text-align:center;">Chess.com Online Profile</h2>
+			<section class="online-container card placeholder-glow">
+				<h5 style="margin-bottom: 20px;">My Profile</h5>
+				<div class="online-pic-bg">
+					<img class="online-pic placeholder" alt="" id="online-pic">
+				</div>
+				<p class="online-city placeholder" id="online-city">location</p>
+				<h5 class="online-name  placeholder" id="online-name">users
+					name</h5>
+				<div class="date-container">
+					<div class="dates card-content">
+						<p class="date-text placeholder" id="last-online">00-00-0000</p>
+						<p class="date-text" style="font-weight: bold;">Last Online</p>
+					</div>
+					<div class="dates card-content">
+						<p class="date-text placeholder" id="date-joined">00-00-0000</p>
+						<p class="date-text" style="font-weight: bold;">Date Joined</p>
+					</div>
+
+				</div>
+
+				<div class="rating-container">
+					<div class="ratings card-content">
+						<p class="rating-text placeholder" id="rapid-rating">rating</p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+							viewBox="0 0 16 16">
+                        <g fill="#6C9D41">
+                            <path
+								d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />
+                            <path
+								d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354l-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354l-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
+                        </g>
+                    </svg>
+					</div>
+					<div class="ratings card-content">
+						<p class="rating-text placeholder" id="blitz-rating">rating</p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+							viewBox="0 0 16 16">
+                        <path fill="#F7C045"
+								d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+                    </svg>
+
+					</div>
+					<div class="ratings card-content">
+						<p class="rating-text placeholder" id="bullet-rating">rating</p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+							viewBox="0 0 512 512">
+                        <path fill="#A58A45"
+								d="M45.57 105c-.82 1.1-2.24 3.8-3.56 7.7c-2.64 7.7-5.13 19.8-7.09 34.5C31.01 176.5 29 216.3 29 256s2.01 79.5 5.92 108.8c1.96 14.7 4.45 26.8 7.09 34.5c1.32 3.9 2.74 6.6 3.56 7.7h73.93c1.8-2.9 4-7.7 6-14H108c-5 0-9.4-2.7-12.21-5.7c-2.84-3.1-4.81-6.7-6.56-10.8c-3.51-8.1-6.04-18.6-8.11-31C76.99 320.7 75 288.4 75 256s1.99-64.7 6.12-89.5c2.07-12.4 4.6-22.9 8.11-31c1.75-4.1 3.72-7.7 6.56-10.8c2.81-3 7.21-5.7 12.21-5.7h17.5c-2-6.3-4.2-11.1-6-14zM172 105c-.5 0-1 0-2.4 1.3c-1.5 1.3-3.4 3.8-5.3 7.6c-3.9 7.4-7.6 19.3-10.5 33.9c-5.8 29-8.8 68.6-8.8 108.2c0 39.5 3 79.2 8.8 108.2c2.9 14.6 6.6 26.5 10.5 33.9c1.9 3.8 3.8 6.3 5.3 7.6c1.4 1.3 1.9 1.3 2.4 1.3c45.9 0 86.9-4 123-10.9c-13.4-11.7-24.5-25.1-33-38.1c-6.1-9.4-10.9-18.4-14.1-26.5c-3.2-8-5.2-14.7-4.5-21.6c1.8-29.9 14.9-52.9 29.9-66.6c7.6-6.9 15.7-11.6 23.8-13.6c2-.5 4.1-.8 6.2-.9c6.3-.3 12.7 1.5 17.3 6.3c.5.4.7.9 1 1.5c29.9 48 63.3 85.8 112.2 103.1c33.1-25.5 49.2-55.1 49.2-83.7c0-35.8-25.2-73.1-77.4-102.1S274.8 105 172 105zm-63 32c-.7.7-2 2.6-3.2 5.5c-2.5 5.9-5 15.4-6.9 27c-3.89 23.2-5.9 54.9-5.9 86.5s2.01 63.3 5.9 86.5c1.9 11.6 4.4 21.1 6.9 27c1.2 2.9 2.5 4.8 3.2 5.5h28.8c-.6-2.3-1.1-4.7-1.6-7.2c-6.2-31-9.2-71.4-9.2-111.8c0-40.5 3-80.8 9.2-111.8c.5-2.5 1-4.9 1.6-7.2zm253.9 25.6l72.8 68.6l-6.2 6.6c-22.1 23.5-52.5 22.2-70.3 6.1c-17.8-16-22.9-46.4-2.4-73.3zm2.9 27.4c-9 17.3-4.1 31.9 5.5 40.6c9.6 8.7 23.9 11.7 38.4.8l-6.7-6.3c-9 2.9-18.1 1.5-23.8-4.3c-4.7-4.9-3.2-11.9-1.3-19.4zm-73.1 61.1c-2.3 1.5-4.8 3.3-7.2 5.5c-11.6 10.6-22.7 29.3-24.1 54.6v.2l-.1.3v.2l32.3-4.2zm18 1.7l.8 51.5l34.8-4c-13-14.4-24.6-30.4-35.6-47.5zm53 65l.9 33.1l7.8-.8v.1l30.5-4.4c-14.4-7.7-27.3-17.2-39.2-28zm-18 .7l-33 3.8l-10 34.5l44-4.2zm-52.8 7.4l-26.3 3.5c2.6 5.6 6.1 12.1 10.4 18.7c2.1 3.1 4.3 6.3 6.7 9.5zm97.9 39.8l-28.6 4.2l-4.9 9.6c12-4.2 23.2-8.9 33.5-13.8zm-49.4 5.4l-42.4 4.1c5.8 5.8 12.1 11.2 18.8 15.9c5.3-1.3 10.4-2.6 15.4-4z" />
+                    </svg>
+					</div>
+				</div>
+
+				<!-- Ratio Card -->
+			</section>
+			<section class="card progress-section placeholder-glow">
+				<!-- blitz bar -->
+				<article>
+					<!-- https://www.w3schools.com/howto/howto_js_progressbar.asp -->
+					<div id="myProgress" class="progress" role="progressbar"
+						aria-label="Animated striped example" aria-valuenow="75"
+						aria-valuemin="0" aria-valuemax="100">
+						<div id="blitzBar"
+							class="progress-bar progress-bar-striped progress-bar-animated"></div>
+					</div>
+					<p class="rating-text placeholder" id="blitz-ratio">my blitz
+						ratio</p>
+				</article>
+				<!-- bullet bar -->
+				<article>
+					<!-- https://www.w3schools.com/howto/howto_js_progressbar.asp -->
+					<div id="myBulletProgress" class="progress" role="progressbar"
+						aria-label="Animated striped example" aria-valuenow="75"
+						aria-valuemin="0" aria-valuemax="100">
+						<div id="bulletBar"
+							class="progress-bar progress-bar-striped progress-bar-animated"></div>
+					</div>
+					<p class="rating-text placeholder" id="bullet-ratio">my bullet
+						ratio</p>
+				</article>
+				<!-- rapid bar -->
+				<article>
+					<!-- https://www.w3schools.com/howto/howto_js_progressbar.asp -->
+					<div id="myRapidProgress" class="progress" role="progressbar"
+						aria-label="Animated striped example" aria-valuenow="75"
+						aria-valuemin="0" aria-valuemax="100">
+						<div id="rapidBar"
+							class="progress-bar progress-bar-striped progress-bar-animated"></div>
+					</div>
+					<p class="rating-text placeholder" id="rapid-ratio">my rapid
+						ratio</p>
+				</article>
+			</section>
+		</div>
+
+
+		<!-- Create Team Section -->
 		<section class='create-team-card'>
 			<div class='login-form-container login-form-bg'>
 				<form class='login-form-left' action="#" th:action="@{/createteam}"
@@ -29,22 +156,22 @@
 						th:field="*{teamName}" id="team-name" name="team-name" /> <input
 						class='login-form-input' placeholder='Team Description'
 						type="text" th:field="*{teamDesc}" id="team-desc" name="team-desc" />
-					
+
 
 					<div>
-						<input class='login-form-input'
-							th:field="*{teamLocation}" type="text" name="team-location"
-							id="team-location" placeholder="Team Location (click map)" />
+						<input class='login-form-input' th:field="*{teamLocation}"
+							type="text" name="team-location" id="team-location"
+							placeholder="Team Location (click map)" />
 					</div>
 					<div class="color-input">
-					
-					<input  type="color" value="#e66465"
-						th:field="*{teamColor}" id="team-color" name="team-color" />
-						<label class="team-color-label" for="team-color"> Team Color</label>
-					
-					
+
+						<input type="color" value="#e66465" th:field="*{teamColor}"
+							id="team-color" name="team-color" /> <label
+							class="team-color-label" for="team-color"> Team Color</label>
+
+
 					</div>
-						
+
 					<button type="submit" class="sign-up-button">Create</button>
 				</form>
 
@@ -56,29 +183,10 @@
 		</section>
 
 
-		<!-- teamList-->
-		<section th:if="${teamList.size() > 0}">
-			<h2>My Teams</h2>
-			<ol>
-				<li th:each="team : ${teamList}">
-					<div th:insert="fragments/team-fragment :: team-fragment"></div>
-				</li>
-			</ol>
-		</section>
-
-		<!-- puzzle icon List-->
-		<section th:if="${puzzleList.size() > 0}" class="badge-card">
-			<h4>My Badges</h4>
-			<div th:each="puzzle : ${puzzleList}">
-				<span class="iconify puzzle-icon"
-					th:data-icon="${puzzle.puzzleIcon}" data-inline="false"></span>
-			</div>
-		</section>
-
-
-		<script type="text/javascript">
-			const map = L.map('my-map').setView(
-					[ 30.268606149999997, -97.74320738193495 ], 13);
+		<script th:inline="javascript" type="text/javascript">
+		var usersCoords = [[${user.userLocation}]];
+		var [usersLatitude, usersLongitude] = usersCoords.split(',');
+	    const map = L.map('my-map').setView([usersLatitude, usersLongitude], 11);
 
 			const isRetina = L.Browser.retina;
 
@@ -87,14 +195,14 @@
 			const locationInput = document.getElementById("team-location")
 
 			L
-					.tileLayer(
-							isRetina ? retinaUrl : baseUrl,
-							{
-								attribution : 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>',
-								apiKey : '78a2da46af4b455abc0c8999786a21aa',
-								maxZoom : 20,
-								id : 'osm-bright',
-							}).addTo(map);
+			.tileLayer(
+			isRetina ? retinaUrl : baseUrl,
+			{
+				attribution : 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>',
+				apiKey : '78a2da46af4b455abc0c8999786a21aa',
+				maxZoom : 20,
+				id : 'osm-bright',
+			}).addTo(map);
 			map.on('click', function(ev) {
 				var latlng = map.mouseEventToLatLng(ev.originalEvent);
 				console.log(latlng.lat + ', ' + latlng.lng);
@@ -102,6 +210,129 @@
 				locationInput.value = latlng.lat + ', ' + latlng.lng;
 			});
 		</script>
+
+		<!-- Chess.com API Calls -->
+		<script th:inline="javascript" type="text/javascript">
+		var onlinePic = document.getElementById("online-pic");
+		var onlineName = document.getElementById("online-name");
+		var onlineCity = document.getElementById("online-city");
+		var lastOnline = document.getElementById("last-online");
+		var dateJoined = document.getElementById("date-joined");
+		var followers = document.getElementById("followers");
+		var rapidRating = document.getElementById("rapid-rating");
+		var blitzRating = document.getElementById("blitz-rating");
+		var bulletRating = document.getElementById("bullet-rating");
+		var blitzRatio = document.getElementById("blitz-ratio");
+		var bulletRatio = document.getElementById("bullet-ratio");
+		var rapidRatio = document.getElementById("rapid-ratio");
+		
+	    fetch("https://api.chess.com/pub/player/" + [[${user.onlineProfile}]]).then(function (response) {
+
+	        response.json().then(function (data) {
+
+	            //Displays Profile Picture
+	            onlinePic.src = data.avatar;
+	            //Display online name
+	            onlineName.innerHTML = data.name;
+	            //display city
+	            onlineCity.innerHTML = data.location;
+	            //date last online
+	            var timestampLastOnline = data.last_online;
+	            var convertedDateLastOnline = new Date(timestampLastOnline * 1000);
+	            var month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+	            var formattedDateLastOnline = month[convertedDateLastOnline.getMonth()] + ' ' + convertedDateLastOnline.getDate() + ', ' + convertedDateLastOnline.getFullYear();
+	            lastOnline.innerHTML = formattedDateLastOnline;
+	            //date joined
+	            var timestampJoined = data.joined;
+	            var convertedDateJoined = new Date(timestampJoined * 1000);
+	            var formattedDateJoined = month[convertedDateJoined.getMonth()] + ' ' + convertedDateJoined.getDate() + ', ' + convertedDateJoined.getFullYear();
+	            dateJoined.innerHTML = formattedDateJoined;
+
+
+	        });
+	    })
+	    
+		fetch("https://api.chess.com/pub/player/" + [[${user.onlineProfile}]] + "/stats").then(function (response) {
+        	response.json().then(function (data) {
+            rapidRating.innerHTML = data.chess_rapid.best.rating;
+            blitzRating.innerHTML = data.chess_blitz.best.rating;
+            bulletRating.innerHTML = data.chess_bullet.best.rating;
+            ///////////////progress bars/////////////////
+            // https://www.w3schools.com/howto/howto_js_progressbar.asp
+            // blitz bar
+            var blitzWLRatio = (data.chess_blitz.record.win / data.chess_blitz.record.loss) / 2 * 100;
+            var blitzWLRatioRounded = Math.round(blitzWLRatio * 100) / 100
+            var blitzEl = document.getElementById("blitzBar");
+            var blitzWidth = 1;
+            var blitzId = setInterval(frame1, 10);
+            if (blitzWLRatio > 100) {
+                blitzWLRatio = 100;
+            }
+            function frame1() {
+                if (blitzWidth >= blitzWLRatio) {
+                    clearInterval(blitzId);
+                } else {
+                    blitzWidth++;
+                    blitzEl.style.width = blitzWidth + "%";
+                }
+            }
+            blitzRatio.innerHTML = "Blitz Win/Loss Ratio: " + blitzWLRatioRounded;
+            // bullet bar
+            var bulletWLRatio = (data.chess_bullet.record.win / data.chess_bullet.record.loss) / 2 * 100;
+            var bulletWLRatioRounded = Math.round(bulletWLRatio * 100) / 100
+            var bulletEl = document.getElementById("bulletBar");
+            var width = 1;
+            var id = setInterval(frame2, 10);
+            if (bulletWLRatio > 100) {
+                bulletWLRatio = 100;
+            }
+            function frame2() {
+                if (width >= bulletWLRatio) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    bulletEl.style.width = width + "%";
+                }
+            }
+            bulletRatio.innerHTML = "bullet Win/Loss Ratio: " + bulletWLRatioRounded;
+            // rapid bar
+            var rapidWLRatio = (data.chess_rapid.record.win / data.chess_rapid.record.loss) / 2 * 100;
+            var rapidWLRatioRounded = Math.round(rapidWLRatio * 100) / 100
+            var rapidEl = document.getElementById("rapidBar");
+            var rapidWidth = 1;
+            var rapidId = setInterval(frame, 10);
+            if (rapidWLRatio > 100) {
+                rapidWLRatio = 100;
+            }
+            function frame() {
+                if (rapidWidth >= rapidWLRatio) {
+                    clearInterval(rapidId);
+                } else {
+                    rapidWidth++;
+                    rapidEl.style.width = rapidWidth + "%";
+                }
+            }
+            rapidRatio.innerHTML = "rapid Win/Loss Ratio: " + rapidWLRatioRounded;
+
+
+        });
+    	})
+	    
+	   	onlineName.classList.remove("placeholder");
+    	onlineCity.classList.remove("placeholder");
+    	lastOnline.classList.remove("placeholder");
+   	 	dateJoined.classList.remove("placeholder");
+   	 	blitzRating.classList.remove("placeholder");
+    	rapidRating.classList.remove("placeholder");
+    	bulletRating.classList.remove("placeholder");
+    	onlinePic.classList.remove("placeholder");
+    	blitzRatio.classList.remove("placeholder");
+    	bulletRatio.classList.remove("placeholder");
+    	rapidRatio.classList.remove("placeholder");
+		
+		</script>
+
+
 
 
 		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>

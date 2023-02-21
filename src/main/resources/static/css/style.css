@@ -108,15 +108,32 @@ body {
 
 .badge-card {
     width: 200px;
-    min-height: 175px;
+    min-height: 275px;
     display: flex;
     background-color: white;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     border-radius: 12px;
     margin:10px;
+}
+
+.my-teams-card {
+    width: 650px;
+    min-height: 275px;
+    display: flex;
+    background-color: white;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 12px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.upper-dash-section {
+	display: flex;
+	justify-content: center;
 }
 
 .team-card {
@@ -132,9 +149,35 @@ body {
     --bs-link-hover-color: none;
 }
 
+.puzzle-card {
+	background-color:white;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	width: 200px;
+	height: 175px;
+	border-radius: 6px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration:none;
+    color: inherit;
+    --bs-link-hover-color: none;
+}
+
+
 .team-card-container {
 	display: flex;
 	flex-wrap:wrap;
+	justify-content: center;
+    padding: 0;
+}
+
+.puzzle-card-container {
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .single-team-background {
@@ -242,7 +285,7 @@ body {
 }
 
 .sign-up-button {
-    width: 45%;
+    width: 51%;
     border-radius: 20px;
     padding: 10px 20px;
     font-size: 12px;
@@ -290,7 +333,7 @@ body {
 	background-color: white;
 	cursor: pointer;
     opacity: 0.7;
-    padding: 5px 20px;
+    padding: 5px 8px;
     border-radius: 0.5rem;
     opacity: 0.7 !important;
     border-width: 2px;
@@ -302,10 +345,14 @@ body {
 	   font-size: 48px;
 }
 
+.team-card-title {
+	font-family: 'Unbounded', cursive;
+}
+
 .create-team-card {
     width: 65vw;
     height: 450px;
-    margin: 10vh auto 73px auto;
+    margin: 20px auto 40px auto;
 }
 
 /* HomePage Styles */
@@ -376,6 +423,147 @@ body {
     margin-top: 55px;
 }
 
+/* ONLINE API CALLS */
+
+.online-container {
+    padding: 25px 0;
+    width: 300px;
+    background-color: white;
+    height: 465px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.online-pic-bg {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
+    margin-top: -12px;
+}
+
+.online-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    left: 5px;
+    top: 3px;
+}
+
+.online-city {
+    margin: 8px 0 0 0;
+}
+
+.online-name {
+    margin: 0 0 30px 0;
+}
+
+.date-container {
+    display: flex;
+}
+
+
+.rating-container {
+    margin-top: 50px;
+    display: flex;
+}
+
+.dates {
+    width: 130px;
+    height: 60px;
+    margin: 0 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.date-text {
+    margin: -1px;
+}
+
+.rating-text {
+    margin: 5px;
+}
+
+.ratings {
+    width: 80px;
+    height: 80px;
+    margin: 0 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-content {
+    background-color: rgb(207, 207, 207);
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+/* ///////Progress Bar/////// */
+/* https://www.w3schools.com/howto/howto_js_progressbar.asp */
+#myProgress {
+    width: 100%;
+    background-color: grey;
+    height: 30px;
+}
+#myBulletProgress {
+    width: 100%;
+    background-color: grey;
+    height: 30px;
+}
+#myRapidProgress {
+    width: 100%;
+    background-color: grey;
+    height: 30px;
+}
+
+#blitzBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
+#bulletBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
+#rapidBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
+.progress-section {
+    margin-left: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    background-color: white;
+    height: 465px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.api-section {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;	
+}
 
 
 /* Dark Mode */

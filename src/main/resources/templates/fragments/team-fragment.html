@@ -15,9 +15,8 @@
 	<a th:href="@{/singleTeam/{id}(id=${team.id})}"
 		th:style="'box-shadow: -1px 1px 8px 0px ' + ${team.teamColor} + ';' "
 		class="team-card p-3 m-3" th:fragment="team-fragment">
-		<h5>[[${team.teamName}]]</h5>
-		<p>[[${team.teamDesc}]]</p>
-		<p>[[${team.teamLocation}]]</p>
+		<h5 class="team-card-title">[[${team.teamName}]]</h5>
+		<p style="text-align: center;">[[${team.teamDesc}]]</p>
 
 
 	</a>
