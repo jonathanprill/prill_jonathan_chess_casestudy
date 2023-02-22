@@ -28,4 +28,4 @@ console.log(id);
   }
 }
 
-document.querySelector('.join-btn').addEventListener('click', joinTeamClickHandler);
+document.querySelector('.team-join-btn').addEventListener('click', joinTeamClickHandler);

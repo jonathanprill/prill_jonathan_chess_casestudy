@@ -294,7 +294,7 @@
                     bulletEl.style.width = width + "%";
                 }
             }
-            bulletRatio.innerHTML = "bullet Win/Loss Ratio: " + bulletWLRatioRounded;
+            bulletRatio.innerHTML = "Bullet Win/Loss Ratio: " + bulletWLRatioRounded;
             // rapid bar
             var rapidWLRatio = (data.chess_rapid.record.win / data.chess_rapid.record.loss) / 2 * 100;
             var rapidWLRatioRounded = Math.round(rapidWLRatio * 100) / 100
@@ -312,7 +312,7 @@
                     rapidEl.style.width = rapidWidth + "%";
                 }
             }
-            rapidRatio.innerHTML = "rapid Win/Loss Ratio: " + rapidWLRatioRounded;
+            rapidRatio.innerHTML = "Rapid Win/Loss Ratio: " + rapidWLRatioRounded;
 
 
         });

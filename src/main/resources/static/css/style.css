@@ -178,6 +178,10 @@ body {
     color: inherit;
     --bs-link-hover-color: none;
     margin-left: 100px;
+    color: var(--main-text-color);
+    font-weight: bold;
+    font-size: 20px;
+    
 }
 
 .welcome-card-container {
@@ -447,12 +451,18 @@ body {
 
 .team-card-title {
 	font-family: 'Unbounded', cursive;
+	text-align: center;
 }
 
 .create-team-card {
     width: 65vw;
     height: 450px;
     margin: 20px auto 40px auto;
+}
+
+.comment-fragment {
+	display: flex;
+    flex-direction: column-reverse;
 }
 
 /* HomePage Styles */
@@ -518,6 +528,7 @@ body {
     display: flex;
     justify-content: space-around;
     margin-top: 40px;
+    margin-bottom:20px;
 }
 
 .message-form {
