@@ -17,7 +17,11 @@ import com.prill.chess.controller.UserController;
 import com.prill.chess.model.User;
 import com.prill.chess.service.UserService;
 
-
+/**
+ * This Class is used for testing the User Service
+ * @author Jonathan Prill
+ *
+ */
 @WebMvcTest(UserController.class)
 public class UserServiceTest {
 

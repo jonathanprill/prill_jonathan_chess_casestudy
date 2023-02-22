@@ -64,7 +64,7 @@ console.log(id);
   });
 
   if (res.ok) {
-    document.location.reload();
+     alert("Congratulations! Check Your Dashboard To View Your New Badge!")
   } else {
     alert(res.statusText);
   }

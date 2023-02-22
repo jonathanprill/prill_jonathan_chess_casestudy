@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- commentList refers to............ -->
-	<div class="card p-3 m-1" th:each="comment : ${commentList}"
+	<div class="card p-3 m-2" th:each="comment : ${commentList}"
 		th:fragment="comment-fragment">
 		
 		<h5>[[${comment.title}]]</h5>

@@ -16,6 +16,12 @@ import com.prill.chess.controller.PuzzleController;
 import com.prill.chess.model.Puzzle;
 import com.prill.chess.service.PuzzleService;
 
+
+/**
+ * This Class is used for testing the Puzzle Service
+ * @author Jonathan Prill
+ *
+ */
 @WebMvcTest(PuzzleController.class)
 public class PuzzleServiceTest {
 

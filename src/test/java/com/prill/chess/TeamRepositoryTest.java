@@ -14,7 +14,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import com.prill.chess.model.Team;
 import com.prill.chess.repository.TeamRepository;
 
-
+/**
+ * This Class is used for testing the Team Repository
+ * @author Jonathan Prill
+ *
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class TeamRepositoryTest {

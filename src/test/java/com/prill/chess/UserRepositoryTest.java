@@ -14,6 +14,12 @@ import com.prill.chess.model.User;
 import com.prill.chess.repository.TeamRepository;
 import com.prill.chess.repository.UserRepository;
 
+
+/**
+ * This Class is used for testing the User Repository
+ * @author Jonathan Prill
+ *
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class UserRepositoryTest {

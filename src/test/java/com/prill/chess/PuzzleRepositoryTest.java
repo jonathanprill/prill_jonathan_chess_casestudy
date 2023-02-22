@@ -14,6 +14,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import com.prill.chess.model.Puzzle;
 import com.prill.chess.repository.PuzzleRepository;
 
+/**
+ * This Class is used for testing the Puzzle Repository
+ * @author Jonathan Prill
+ *
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class PuzzleRepositoryTest {

@@ -16,6 +16,11 @@ import com.prill.chess.controller.TeamController;
 import com.prill.chess.model.Team;
 import com.prill.chess.service.TeamService;
 
+/**
+ * This Class is used for testing the Team Controller
+ * @author Jonathan Prill
+ *
+ */
 @WebMvcTest(TeamController.class)
 public class TeamServiceTest {
 

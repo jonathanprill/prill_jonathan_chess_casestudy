@@ -22,7 +22,7 @@
 					th:object="${comment}" method="post">
 
 					<div class="mb-3">
-						<label class="form-label">Title</label> <input
+						<label class="form-label"></label> <input placeholder="Subject"
 							class="form-control" type="text" th:field="*{title}"
 							id="comment-title" name="teamId" th:value="${team.id}" />
 					</div>
@@ -31,19 +31,23 @@
 					<div class="mb-3">
 						<input class="form-label" type="hidden" th:value="${team.id}"
 							name="teamId" />
-						<textarea class="form-control" name="comment-body"
+						<textarea class="form-control" name="comment-body" placeholder="What's happening?"
 							th:field="*{body}"></textarea>
 					</div>
 
 					<div>
-						<button type="submit">Post</button>
+						<button class="team-post-btn" type="submit">Post</button>
 					</div>
 				</form>
 
 				<!-- Comment Section in Team View -->
 				<div th:insert="fragments/comment-fragment :: comment-fragment"></div>
-				<h1>TEST</h1>
-				<button type="button" class="join-btn">Join Team</button>
+				
+				<div class="team-join-btn-container">
+				<button type="button" class="team-join-btn">Join Team</button>
+				</div>
+				
+				
 				<script src="/js/join-team.js"></script>
 			</div>
 		</div>

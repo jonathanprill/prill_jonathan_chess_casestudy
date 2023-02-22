@@ -16,6 +16,11 @@ import com.prill.chess.controller.CommentController;
 import com.prill.chess.model.Comment;
 import com.prill.chess.service.CommentService;
 
+/**
+ * This Class is used for testing the comment controller
+ * @author Jonathan Prill
+ *
+ */
 @WebMvcTest(CommentController.class)
 public class CommentServiceTest {
 

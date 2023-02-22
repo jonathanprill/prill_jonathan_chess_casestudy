@@ -14,6 +14,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import com.prill.chess.model.Comment;
 import com.prill.chess.repository.CommentRepository;
 
+/**
+ * This Class is used for testing the comment repository
+ * @author Jonathan Prill
+ *
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class CommentRepositoryTest {

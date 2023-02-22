@@ -16,6 +16,12 @@ import com.prill.chess.repository.PuzzleRepository;
 import com.prill.chess.repository.TeamRepository;
 import com.prill.chess.repository.UserRepository;
 
+
+/**
+ * This Class is used for testing the HomePage Controller
+ * @author Jonathan Prill
+ *
+ */
 @WebMvcTest(HomePageController.class)
 public class HomePageControllerTest {
 
@@ -31,6 +37,10 @@ public class HomePageControllerTest {
 	@Autowired
 	MockMvc mockMVC;
 
+	/**
+	 * Tests the all teams route
+	 * @throws Exception
+	 */
 	@Test
 	public void testUserRoute() throws Exception {
 

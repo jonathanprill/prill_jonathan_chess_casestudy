@@ -182,9 +182,8 @@ body {
 
 .welcome-card-container {
 	display: flex;
-	margin:20px;
+	margin: 40px 0 0 -100px;
 	justify-content: center;
-	margin-left: -100px;
 }
 
 
@@ -227,6 +226,7 @@ body {
 	flex-wrap:wrap;
 	justify-content: center;
     padding: 0;
+    margin-top: 38px
 }
 
 .puzzle-card-container {
@@ -251,6 +251,18 @@ body {
 	width: 80%;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	border-radius: 18px;
+}
+
+.chessboard-container {
+	display: flex;
+    justify-content: center;
+}
+
+.puzzle-subheader {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 50px 0;
 }
 
 /* Login page */
@@ -353,6 +365,36 @@ body {
     margin-bottom: 10px;
 }
 
+.team-post-btn{
+	width: 120px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-family: 'Unbounded', cursive;
+    border: none;
+    background-color: var(--secondary-bg-color);
+    color: var(--main-text-color);
+    margin: 0 0 40px 10px;
+}
+
+.team-join-btn{
+	width: 200px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-family: 'Unbounded', cursive;
+    border: none;
+    background-color: var(--secondary-bg-color);
+    color: var(--main-text-color);
+    margin: 60px 10px 20px 0;
+}
+
+.team-join-btn-container {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+}
+
 .color-input {
 	width: 100%;
     display: flex;
@@ -399,7 +441,8 @@ body {
 }
 
 .puzzle-icon {
-	   font-size: 48px;
+	  font-size: 48px;
+	  margin-left: 12px
 }
 
 .team-card-title {
@@ -418,6 +461,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 0 130px;
+    margin-bottom: 48px
 }
 
 .about-section>h1 {
@@ -446,13 +490,14 @@ body {
     font-size: 45px;
     color: var(--dark-bg-color);
     text-shadow: 0 0 10px rgb(0 0 0 / 50%);
-    margin:20px 0;
+    margin:38px 0;
 }
 
 .welcome-section>p {
     color: black;
     font-size: 18px;
     line-height: 1.2;
+    margin-bottom: 60px;
 }
 
 .reach-out-section {
