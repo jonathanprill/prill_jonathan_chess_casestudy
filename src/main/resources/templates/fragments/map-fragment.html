@@ -10,7 +10,7 @@
 <body>
 <article class="map" th:fragment="map-fragment">
 
-
+<!-- https://leafletjs.com/reference.html -->
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
           integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
           crossorigin=""></script>
@@ -19,7 +19,7 @@
 <script th:inline="javascript" type="text/javascript">
 	//Gets user userLocation and uses it to center map view
 
-
+<!-- Source https://leafletjs.com/reference.html -->
 	var usersCoords = [[${user.userLocation}]];
 	var [usersLatitude, usersLongitude] = usersCoords.split(',');
     const map = L.map('my-map').setView([usersLatitude, usersLongitude], 13);

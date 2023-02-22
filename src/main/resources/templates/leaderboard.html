@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Leaderboard</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	
+	    <div class="container-sm py-4" id="page-content" style="padding-right:60px;;">
+        <form style="padding: 0 0 15px 30px;">
+            <b>Leaderboard Size</b>
+            <select id="myList" onchange="selectNumber()">
+                <option> 10 </option>
+                <option> 20 </option>
+                <option> 30 </option>
+                <option> 40 </option>
+            </select>
+        </form>
+        
+        
+        <!-- Chess.com API -->
+        <table class="table bg-white table-striped table-hover" style="margin-left: 30px;" name="mytab" id="mytab1">
+            <thead class="bg-light">
+                <tr>
+                    <th>Rank</th>
+                    <th>Photo</th>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody id="t-body">
+            </tbody>
+        </table>
+    </div>
+			<script src="../js/leaderboard.js"></script>
+	
+	</div>
+</body>
+</html>

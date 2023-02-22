@@ -1,4 +1,4 @@
-<h1 align="center">prill_jonathan_chess_casestudy</h1>
+<h1 align="center">Chess Connect</h1>
 
 
 <br />
@@ -12,6 +12,9 @@
 </p>
 
 <p align="center">
+    <img src="https://img.shields.io/badge/-Java-red" />
+    <img src="https://img.shields.io/badge/-Thymeleaf-green" />
+    <img src="https://img.shields.io/badge/-Spring-green" />
     <img src="https://img.shields.io/badge/-Bootstrap-purple" />
     <img src="https://img.shields.io/badge/-JavaScript-yellow" />
     <img src="https://img.shields.io/badge/-HTML-red" />
@@ -19,11 +22,11 @@
     <img src="https://img.shields.io/badge/-APIs-yellow" />
 </p>
 
-<!-- ![ScreenShot](./src/main/resources/static/images/prill-fe-sba-gif.gif "screenshot") -->
+![ScreenShot](./src/main/resources/static/img/prill-capstone.gif "screenshot")
 
 ## Description
 
-lorem prill_jonathan_chess_casestudy
+Although small, this capable application provides a means for chess players to make real connections. During the pandemic and the subsequent release of The Queens Gambit, chess began to blossom. Many learned to play online and have never played over the board. This application's goal is to fix that problem by providing a social platform for those yearning to get out, socialize, and play chess.
 
 
 ## Table of Contents 

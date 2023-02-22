@@ -262,5 +262,16 @@ public class HomePageController {
 		model.addAttribute("puzzle", puzzle);
 		return model;
 	}
+	
+	@GetMapping("/leaderboard")
+	public String createLeaderboard(Model model, HttpServletRequest request) throws Exception {
+		if (request.getSession(false) != null) {
+			setupDashboard(model, request);
+			return "leaderboard";
+		} else {
+			model.addAttribute("user", new User());
+			return "login";
+		}
+	}
 
 }

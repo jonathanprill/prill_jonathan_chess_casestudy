@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+<!-- Source https://leafletjs.com/reference.html -->
 	<div layout:fragment="content">
 		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
 			integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
@@ -48,7 +48,7 @@
 		</div>
 
 
-		<!-- Chess.com API Section -->
+		<!-- Source Chess.com API -->
 		<div class="api-section">
 			<h2 style="width:100%; text-align:center;">Chess.com Online Profile</h2>
 			<section class="online-container card placeholder-glow">
@@ -182,7 +182,7 @@
 			</div>
 		</section>
 
-
+<!-- Source https://leafletjs.com/reference.html -->
 		<script th:inline="javascript" type="text/javascript">
 		var usersCoords = [[${user.userLocation}]];
 		var [usersLatitude, usersLongitude] = usersCoords.split(',');
